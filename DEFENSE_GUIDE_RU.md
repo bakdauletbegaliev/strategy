@@ -1,7 +1,8 @@
 # Подготовка к защите — Strategy Pattern
 
 **Проект:** City Route Planner  
-**Студент:** Begaliev Bakdaulet
+**Студент:** Begaliev Bakdaulet  
+**Группа:** SE-2526
 
 ## Что сказать за 40–60 секунд
 

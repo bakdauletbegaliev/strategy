@@ -1,6 +1,7 @@
 # Assignment #5 — Strategy Pattern: City Route Planner
 
 **Student:** Begaliev Bakdaulet  
+**Group:** SE-2526  
 **Course:** Software Design Patterns (ShP-2216)  
 **Academic year:** 2026–2027  
 **Language:** Java 17  

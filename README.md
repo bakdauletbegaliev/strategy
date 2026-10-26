@@ -1,6 +1,7 @@
 # City Route Planner — Strategy Pattern
 
 **Student:** Begaliev Bakdaulet  
+**Group:** SE-2526  
 **Course:** Software Design Patterns, Assignment #5  
 **University:** Astana IT University  
 **Academic year:** 2026–2027  
