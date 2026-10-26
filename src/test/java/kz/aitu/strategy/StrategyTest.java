@@ -40,7 +40,7 @@ public class StrategyTest {
         expectError(() -> new Route("A", "B", 0), "Zero distance");
         expectError(() -> new Route("", "B", 4), "Empty location");
         expectError(() -> navigator.setStrategy(null), "Null strategy");
-        System.out.println("All 9 checks passed.");
+        System.out.println("All 11 checks passed.");
     }
 
     private static void check(boolean condition, String name) {

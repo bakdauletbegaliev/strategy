@@ -1,0 +1,73 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam ArrowColor #334155
+skinparam class {
+    BackgroundColor #F8FAFC
+    BorderColor #334155
+    FontColor #172033
+}
+left to right direction
+
+class Main <<Client>> {
+  + main(args: String[]): void
+  - runMenu(navigator, route, options): void
+  - printResult(result: RouteResult): void
+}
+
+class Navigator <<Context>> {
+  - strategy: RouteStrategy
+  + Navigator(strategy: RouteStrategy)
+  + setStrategy(strategy: RouteStrategy): void
+  + planRoute(route: Route): RouteResult
+}
+
+interface RouteStrategy <<Strategy>> {
+  + calculate(route: Route): RouteResult
+}
+
+class WalkingStrategy <<Concrete Strategy>> {
+  + calculate(route: Route): RouteResult
+}
+class BicycleStrategy <<Concrete Strategy>> {
+  + calculate(route: Route): RouteResult
+}
+class CarStrategy <<Concrete Strategy>> {
+  + calculate(route: Route): RouteResult
+}
+
+class Route <<Input>> {
+  - start: String
+  - destination: String
+  - distanceKm: double
+  + getDistanceKm(): double
+}
+
+class RouteResult <<Output>> {
+  - transport: String
+  - minutes: int
+  - costKzt: long
+  - note: String
+  + getMinutes(): int
+  + getCostKzt(): long
+}
+
+Main ..> Navigator : creates / calls
+Main ..> RouteStrategy : selects implementation
+Navigator "1" o--> "1" RouteStrategy : current strategy
+WalkingStrategy ..|> RouteStrategy : implements
+BicycleStrategy ..|> RouteStrategy : implements
+CarStrategy ..|> RouteStrategy : implements
+RouteStrategy ..> Route : input parameter
+RouteStrategy ..> RouteResult : returns
+
+legend bottom
+  **UML connections**
+  solid line with hollow diamond = shared aggregation (Navigator holds the Strategy)
+  dashed line with hollow triangle = interface realization (implements)
+  dashed arrow = dependency (uses / creates / returns)
+endlegend
+@enduml

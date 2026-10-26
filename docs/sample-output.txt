@@ -1,0 +1,11 @@
+CITY ROUTE PLANNER
+Student Dormitory -> Astana IT University
+Distance: 7.5 km
+
+Automatic strategy switching:
+Walking: 90 min, 0 KZT
+  Walking speed: 5 km/h
+Bicycle: 35 min, 0 KZT
+  Includes 2 minutes to park the bicycle
+Car: 20 min, 888 KZT
+  Includes 8 minutes of traffic and parking
