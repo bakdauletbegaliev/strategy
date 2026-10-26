@@ -1,0 +1,69 @@
+digraph strategy {
+  graph [
+    rankdir=TB, bgcolor="white", pad="0.40", nodesep="0.25", ranksep="0.55",
+    splines=polyline, outputorder=edgesfirst, fontname="DejaVu Sans", fontsize=14,
+    label="CITY ROUTE PLANNER  /  UML CLASS DIAGRAM", labelloc=t,
+    fontcolor="#0f172a"
+  ];
+  node [shape=plain, fontname="DejaVu Sans"];
+  edge [fontname="DejaVu Sans", fontsize=10, color="#64748b", fontcolor="#475569", arrowsize=0.85];
+
+  Main [label=<
+  <TABLE BORDER="1" COLOR="#475569" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#eff6ff">
+   <TR><TD ALIGN="CENTER"><FONT POINT-SIZE="10" COLOR="#1d4ed8">&lt;&lt;Client&gt;&gt;</FONT><BR/><B>Main</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">+ main(args): void<BR ALIGN="LEFT"/>- runMenu(...): void<BR ALIGN="LEFT"/>- printResult(...): void</FONT></TD></TR>
+  </TABLE>>];
+
+  Navigator [label=<
+  <TABLE BORDER="1" COLOR="#0f766e" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#ecfdf5">
+   <TR><TD ALIGN="CENTER"><FONT POINT-SIZE="10" COLOR="#0f766e">&lt;&lt;Context&gt;&gt;</FONT><BR/><B>Navigator</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">- strategy: RouteStrategy</FONT></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">+ setStrategy(strategy): void<BR ALIGN="LEFT"/>+ planRoute(route): RouteResult</FONT></TD></TR>
+  </TABLE>>];
+
+  RouteStrategy [label=<
+  <TABLE BORDER="1" COLOR="#7c3aed" CELLBORDER="0" CELLSPACING="0" CELLPADDING="11" BGCOLOR="#f5f3ff">
+   <TR><TD ALIGN="CENTER"><FONT POINT-SIZE="10" COLOR="#6d28d9">&lt;&lt;interface&gt;&gt;</FONT><BR/><B>RouteStrategy</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">+ calculate(route): RouteResult</FONT></TD></TR>
+  </TABLE>>];
+
+  WalkingStrategy [label=<
+  <TABLE BORDER="1" COLOR="#64748b" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#f8fafc">
+   <TR><TD ALIGN="CENTER"><B>WalkingStrategy</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">+ calculate(route): RouteResult</FONT></TD></TR>
+  </TABLE>>];
+  BicycleStrategy [label=<
+  <TABLE BORDER="1" COLOR="#64748b" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#f8fafc">
+   <TR><TD ALIGN="CENTER"><B>BicycleStrategy</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">+ calculate(route): RouteResult</FONT></TD></TR>
+  </TABLE>>];
+  CarStrategy [label=<
+  <TABLE BORDER="1" COLOR="#64748b" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#f8fafc">
+   <TR><TD ALIGN="CENTER"><B>CarStrategy</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">+ calculate(route): RouteResult</FONT></TD></TR>
+  </TABLE>>];
+
+  Route [label=<
+  <TABLE BORDER="1" COLOR="#b45309" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#fffbeb">
+   <TR><TD ALIGN="CENTER"><FONT POINT-SIZE="10" COLOR="#92400e">&lt;&lt;Input&gt;&gt;</FONT><BR/><B>Route</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">- start: String<BR ALIGN="LEFT"/>- destination: String<BR ALIGN="LEFT"/>- distanceKm: double</FONT></TD></TR>
+  </TABLE>>];
+  RouteResult [label=<
+  <TABLE BORDER="1" COLOR="#b45309" CELLBORDER="0" CELLSPACING="0" CELLPADDING="9" BGCOLOR="#fffbeb">
+   <TR><TD ALIGN="CENTER"><FONT POINT-SIZE="10" COLOR="#92400e">&lt;&lt;Output&gt;&gt;</FONT><BR/><B>RouteResult</B></TD></TR>
+   <HR/><TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10">- transport: String<BR ALIGN="LEFT"/>- minutes: int<BR ALIGN="LEFT"/>- costKzt: long<BR ALIGN="LEFT"/>- note: String</FONT></TD></TR>
+  </TABLE>>];
+
+  Main -> Navigator [style=dashed, arrowhead=vee, color="#64748b", label="creates / calls", minlen=2];
+  Main -> RouteStrategy [style=dashed, arrowhead=vee, color="#64748b", label="selects", constraint=false];
+  Navigator -> RouteStrategy [dir=both, arrowtail=odiamond, arrowhead=vee, color="#0f766e", penwidth=2.2, label="holds 1 active strategy", minlen=2];
+  WalkingStrategy -> RouteStrategy [style=dashed, arrowhead=empty, color="#6d28d9", penwidth=1.7];
+  BicycleStrategy -> RouteStrategy [style=dashed, arrowhead=empty, color="#6d28d9", penwidth=1.7];
+  CarStrategy -> RouteStrategy [style=dashed, arrowhead=empty, color="#6d28d9", penwidth=1.7];
+  RouteStrategy -> Route [style=dashed, arrowhead=vee, color="#d97706", label="takes", minlen=2];
+  RouteStrategy -> RouteResult [style=dashed, arrowhead=vee, color="#d97706", label="returns", minlen=2];
+
+  {rank=same; WalkingStrategy; BicycleStrategy; CarStrategy;}
+  {rank=same; Route; RouteResult;}
+  WalkingStrategy -> BicycleStrategy -> CarStrategy [style=invis, weight=10];
+}

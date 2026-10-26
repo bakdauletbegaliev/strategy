@@ -86,7 +86,8 @@ These are simplified, educational estimates. The sample distance is entered manu
 - [UML class diagram (PNG)](docs/uml/strategy-class-diagram.png)
 - [UML class diagram (SVG)](docs/uml/strategy-class-diagram.svg)
 - [Editable PlantUML source](docs/uml/strategy-class-diagram.puml)
-- [Assignment report — REPORT.md](REPORT.md)
+- [Assignment report — REPORT.md, with visible UML](REPORT.md)
+- [PDF report with embedded UML](REPORT_WITH_UML.pdf)
 - [Defense notes in Russian](DEFENSE_GUIDE_RU.md)
 
 **UML arrow meanings:** hollow diamond = strategy reference (aggregation); dashed line with hollow triangle = interface implementation; dashed arrow = dependency (uses).
@@ -113,4 +114,4 @@ pom.xml
 
 ## Submission
 
-Push this project to https://github.com/bakdauletbegaliev/strategy and upload **REPORT.md** (plus the UML diagram if required by Moodle) before the deadline. Read and adapt the material in your own words: the course requires independent work and an individual defense.
+Push this project to https://github.com/bakdauletbegaliev/strategy and upload **REPORT.md** (and its image file, if Moodle needs it), or use **REPORT_WITH_UML.pdf** as an additional readable copy before the deadline. Read and adapt the material in your own words: the course requires independent work and an individual defense.

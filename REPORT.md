@@ -17,9 +17,11 @@ The **Strategy interface** is `RouteStrategy`. Its `calculate(Route)` method is 
 
 ## 2. UML Class Diagram
 
-![City Route Planner UML class diagram](https://raw.githubusercontent.com/bakdauletbegaliev/strategy/main/docs/uml/strategy-class-diagram.png)
+![UML class diagram showing Context, Strategy interface, three concrete strategies, Client, and model classes](docs/uml/strategy-report-diagram.png)
 
-Local diagram: [PNG](docs/uml/strategy-class-diagram.png) · [PlantUML source](docs/uml/strategy-class-diagram.puml) · [SVG](docs/uml/strategy-class-diagram.svg).
+**Figure 1. UML class diagram of City Route Planner.** It shows the Client, Context, Strategy interface, three concrete strategies, and route data classes.
+
+Diagram files: [report PNG](docs/uml/strategy-report-diagram.png) · [full-size UML](docs/uml/strategy-class-diagram.png) · [PlantUML source](docs/uml/strategy-class-diagram.puml).
 
 Different UML arrows have different meanings:
 
