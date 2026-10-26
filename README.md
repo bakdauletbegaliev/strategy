@@ -2,9 +2,6 @@
 
 **Student:** Begaliev Bakdaulet  
 **Group:** SE-2526  
-**Course:** Software Design Patterns, Assignment #5  
-**University:** Astana IT University  
-**Academic year:** 2026–2027  
 **GitHub:** https://github.com/bakdauletbegaliev/strategy
 
 A small Java 17 application that compares travel time and estimated cost for walking, bicycle, and car. The transport algorithm can be changed while the program is running. No external APIs or libraries are needed to run it.
@@ -111,7 +108,3 @@ REPORT.md
 DEFENSE_GUIDE_RU.md
 pom.xml
 ```
-
-## Submission
-
-Push this project to https://github.com/bakdauletbegaliev/strategy and upload **REPORT.md** (and its image file, if Moodle needs it), or use **REPORT_WITH_UML.pdf** as an additional readable copy before the deadline. Read and adapt the material in your own words: the course requires independent work and an individual defense.
